@@ -19,9 +19,9 @@ class UrlGenerationBlogController extends AbstractController
     public function list(): Response
     {
         // STEP 1: Generate a simple URL with NO route arguments
-        // This creates a URL for the 'sign_up' route without any parameters
-        // Result: /sign-up (or whatever your sign_up route path is)
-        $signUpPage = $this->generateUrl('sign_up');
+        // This creates a URL for the 'user_register' route without any parameters
+        // Result: /user/register
+        $signUpPage = $this->generateUrl('user_register');
 
         // STEP 2: Generate a URL WITH route arguments
         // The second parameter is an array containing route parameters
@@ -35,9 +35,9 @@ class UrlGenerationBlogController extends AbstractController
         // By default, generateUrl() returns "absolute paths" (relative URLs like /blog)
         // To get a full URL with domain (http://example.com/blog), pass a third parameter
         // UrlGeneratorInterface::ABSOLUTE_URL tells Symfony to include the full domain
-        // Result: https://example.com/sign-up
+        // Result: https://example.com/user/register
         $signUpPageAbsolute = $this->generateUrl(
-            'sign_up', 
+            'user_register', 
             [], 
             UrlGeneratorInterface::ABSOLUTE_URL
         );
@@ -45,8 +45,8 @@ class UrlGenerationBlogController extends AbstractController
         // STEP 4: Generate URL for a LOCALIZED route (multi-language support)
         // When your app supports multiple languages, you can specify which locale
         // The '_locale' parameter is special - it tells Symfony which language version to use
-        // Result: /nl/sign-up (the 'nl' prefix might be added depending on your routing)
-        $signUpPageInDutch = $this->generateUrl('sign_up', [
+        // Result: /nl/user/register (the 'nl' prefix might be added depending on your routing)
+        $signUpPageInDutch = $this->generateUrl('user_register', [
             '_locale' => 'nl', // 'nl' = Dutch language code
         ]);
 
@@ -54,7 +54,7 @@ class UrlGenerationBlogController extends AbstractController
         // If you pass parameters that aren't part of the route definition,
         // they get added as query string parameters (the ?key=value part of the URL)
         // Result: /blog?page=2&category=Symfony
-        $blogWithFilters = $this->generateUrl('blog', [
+        $blogWithFilters = $this->generateUrl('blog_list', [
             'page' => 2,              // This becomes ?page=2
             'category' => 'Symfony',  // This becomes &category=Symfony
         ]);
@@ -62,7 +62,7 @@ class UrlGenerationBlogController extends AbstractController
         // STEP 6: Convert objects to string for extra parameters
         // Important: Objects (like UUID) in extra parameters need to be explicitly converted
         // This is because objects have special handling in route parameters
-        $blogWithUuid = $this->generateUrl('blog', [
+        $blogWithUuid = $this->generateUrl('blog_list', [
             'uuid' => (string) '550e8400-e29b-41d4-a716-446655440000', // Cast to string!
         ]);
 
@@ -95,16 +95,16 @@ class UrlGenerationBlogController extends AbstractController
         
         // Type 1: ABSOLUTE_PATH (default)
         // Returns: /blog (just the path without domain)
-        $path = $this->generateUrl('blog', [], UrlGeneratorInterface::ABSOLUTE_PATH);
+        $path = $this->generateUrl('blog_list', [], UrlGeneratorInterface::ABSOLUTE_PATH);
 
         // Type 2: ABSOLUTE_URL 
         // Returns: https://example.com/blog (full URL with protocol and domain)
-        $absoluteUrl = $this->generateUrl('blog', [], UrlGeneratorInterface::ABSOLUTE_URL);
+        $absoluteUrl = $this->generateUrl('blog_list', [], UrlGeneratorInterface::ABSOLUTE_URL);
 
         // Type 3: NETWORK_PATH
         // Returns: //example.com/blog (protocol-relative URL)
         // Useful when switching between http and https
-        $networkPath = $this->generateUrl('blog', [], UrlGeneratorInterface::NETWORK_PATH);
+        $networkPath = $this->generateUrl('blog_list', [], UrlGeneratorInterface::NETWORK_PATH);
 
         $content = sprintf(
             '<h1>Different URL Types</h1>

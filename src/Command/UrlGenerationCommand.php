@@ -36,9 +36,9 @@ class UrlGenerationCommand extends Command
         $io->title('URL Generation in Console Commands');
 
         // STEP 2: Generate a simple URL
-        // In console context, this becomes: http://localhost/sign-up
+        // In console context, this becomes: http://localhost/user/register
         // (until you configure default_uri in routing config)
-        $signUpUrl = $this->urlGenerator->generate('sign_up');
+        $signUpUrl = $this->urlGenerator->generate('user_register');
         $io->writeln('Sign-up URL: ' . $signUpUrl);
 
         // STEP 3: Generate a URL with parameters
@@ -51,10 +51,10 @@ class UrlGenerationCommand extends Command
         // STEP 4: Generate ABSOLUTE URL for command context
         // Important: In commands, you usually want ABSOLUTE_URL because
         // you might be sending the URL in an email or webhook
-        // Without configuration, Result: http://localhost/sign-up
-        // With configuration: https://example.com/sign-up
+        // Without configuration, Result: http://localhost/user/register
+        // With configuration: https://example.com/user/register
         $absoluteSignUpUrl = $this->urlGenerator->generate(
-            'sign_up',
+            'user_register',
             [],
             UrlGeneratorInterface::ABSOLUTE_URL
         );
@@ -62,7 +62,7 @@ class UrlGenerationCommand extends Command
 
         // STEP 5: Generate localized URL
         // Commands can generate URLs in different languages
-        $dutchUrl = $this->urlGenerator->generate('sign_up', [
+        $dutchUrl = $this->urlGenerator->generate('user_register', [
             '_locale' => 'nl',
         ]);
         $io->writeln('Dutch URL: ' . $dutchUrl);

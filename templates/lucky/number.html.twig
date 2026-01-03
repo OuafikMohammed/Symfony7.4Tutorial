@@ -1,1 +1,20 @@
-<h1>Your lucky number is {{ number }}</h1>
+{% extends 'base.html.twig' %}
+
+{% block title %}Lucky Number - Symfony Demo{% endblock %}
+
+{% block body %}
+    <div class="flex items-center justify-center min-h-[400px]">
+        <div class="text-center">
+            <div class="text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-pulse">
+                {{ number }}
+            </div>
+            <h1 class="text-4xl font-bold text-slate-800 mb-4">Your Lucky Number! 🍀</h1>
+            <p class="text-xl text-slate-600 mb-8">You've been blessed with fortune today</p>
+            
+            <div class="flex gap-4 justify-center">
+                <a href="{{ path('lucky_number', {number: random(1, 100)}) }}" class="btn btn-primary">🔄 Get Another Number</a>
+                <a href="{{ path('post_index') }}" class="btn btn-secondary">📝 Back to Posts</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
