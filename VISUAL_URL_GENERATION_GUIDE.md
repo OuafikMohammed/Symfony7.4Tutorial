@@ -236,7 +236,7 @@ return new RedirectResponse(
 
 ### Type 1: ABSOLUTE_PATH (Default)
 ```php
-$url = $this->generateUrl('blog', []);
+$url = $this->generateUrl('blog_list', []);
 // Result: /blog
 
 // Use for: Internal website links, form actions
@@ -244,7 +244,7 @@ $url = $this->generateUrl('blog', []);
 
 ### Type 2: ABSOLUTE_URL
 ```php
-$url = $this->generateUrl('blog', [], UrlGeneratorInterface::ABSOLUTE_URL);
+$url = $this->generateUrl('blog_list', [], UrlGeneratorInterface::ABSOLUTE_URL);
 // Result: https://example.com/blog
 
 // Use for: Emails, APIs, external services
@@ -252,7 +252,7 @@ $url = $this->generateUrl('blog', [], UrlGeneratorInterface::ABSOLUTE_URL);
 
 ### Type 3: NETWORK_PATH
 ```php
-$url = $this->generateUrl('blog', [], UrlGeneratorInterface::NETWORK_PATH);
+$url = $this->generateUrl('blog_list', [], UrlGeneratorInterface::NETWORK_PATH);
 // Result: //example.com/blog
 
 // Use for: Mixed http/https environments

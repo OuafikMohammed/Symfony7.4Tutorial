@@ -63,13 +63,13 @@ $url = $this->generateUrl('blog_show', ['slug' => 'my-post']);
 ### Extra Parameters (Become Query String)
 ```php
 // Route: /blog
-$url = $this->generateUrl('blog', ['page' => 2, 'sort' => 'date']);
+$url = $this->generateUrl('blog_list', ['page' => 2, 'sort' => 'date']);
 // Result: /blog?page=2&sort=date
 ```
 
 ### Locale Parameter (Special - for multi-language)
 ```php
-$url = $this->generateUrl('sign_up', ['_locale' => 'nl']);
+$url = $this->generateUrl('user_register', ['_locale' => 'nl']);
 // Result: /nl/sign-up (or similar depending on your routing)
 ```
 
@@ -186,8 +186,8 @@ $signedResetLink = $this->uriSigner->sign(
 
 ### Pagination
 ```php
-$prevPage = $this->generateUrl('blog', ['page' => $page - 1]);
-$nextPage = $this->generateUrl('blog', ['page' => $page + 1]);
+$prevPage = $this->generateUrl('blog_list', ['page' => $page - 1]);
+$nextPage = $this->generateUrl('blog_list', ['page' => $page + 1]);
 ```
 
 ### Filters/Search

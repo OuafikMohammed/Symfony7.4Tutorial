@@ -68,9 +68,9 @@ class UrlGenerationBlogController extends AbstractController
     public function list(): Response
     {
         // Generate a simple URL
-        // This creates a URL for the 'sign_up' route
-        // Result: /sign-up
-        $signUpPage = $this->generateUrl('sign_up');
+        // This creates a URL for the 'user_register' route
+        // Result: /user/register
+        $signUpPage = $this->generateUrl('user_register');
 
         // Use it in a response
         return new Response('Sign up here: ' . $signUpPage);
@@ -79,8 +79,8 @@ class UrlGenerationBlogController extends AbstractController
 ```
 
 **How It Works:**
-1. You call `$this->generateUrl('sign_up')` with the route name
-2. Symfony looks up the route named `sign_up`
+1. You call `$this->generateUrl('user_register')` with the route name
+2. Symfony looks up the route named `user_register`
 3. It returns the URL path for that route
 
 ### Step 2: URL Generation with Parameters
@@ -119,11 +119,11 @@ $userUrl = $this->generateUrl('user_profile', [
 
 ```php
 // Default - returns just the path
-$relativePath = $this->generateUrl('sign_up');
+$relativePath = $this->generateUrl('user_register');
 // Result: /sign-up
 
 // To get full URL with domain, use the third parameter
-$fullUrl = $this->generateUrl('sign_up', [], UrlGeneratorInterface::ABSOLUTE_URL);
+$fullUrl = $this->generateUrl('user_register', [], UrlGeneratorInterface::ABSOLUTE_URL);
 // Result: https://example.com/sign-up
 ```
 
@@ -155,20 +155,20 @@ When your app supports multiple languages, you can generate URLs in different la
 
 ```php
 // Default - uses the current request's language
-$englishUrl = $this->generateUrl('sign_up');
-// Result: /en/sign-up (if English is current language)
+$englishUrl = $this->generateUrl('user_register');
+// Result: /en/user/register (if English is current language)
 
 // Generate Dutch version
-$dutchUrl = $this->generateUrl('sign_up', [
+$dutchUrl = $this->generateUrl('user_register', [
     '_locale' => 'nl'
 ]);
-// Result: /nl/sign-up
+// Result: /nl/user/register
 
 // Generate French version
-$frenchUrl = $this->generateUrl('sign_up', [
+$frenchUrl = $this->generateUrl('user_register', [
     '_locale' => 'fr'
 ]);
-// Result: /fr/sign-up
+// Result: /fr/user/register
 ```
 
 **Important:** The `_locale` parameter is special - it's always handled as a locale, not as a route parameter.
@@ -204,7 +204,7 @@ $userUrl = $this->generateUrl('user_profile', [
 
 // For EXTRA parameters - you must convert to string manually
 $uuid = '550e8400-e29b-41d4-a716-446655440000';
-$url = $this->generateUrl('blog', [
+$url = $this->generateUrl('blog_list', [
     'uuid' => (string) $uuid  // Must explicitly cast to string!
 ]);
 ```

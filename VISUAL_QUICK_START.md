@@ -297,7 +297,7 @@ return $this->render('template.html', [
 ```
 ❌ WRONG                              ✅ CORRECT
 ─────────────────────────────────────────────────────────────
-$url = '/blog/5'                      $this->generateUrl('blog', ['id' => 5])
+$url = '/blog/5'                      $this->generateUrl('blog_list', ['id' => 5])
 
 Email: generateUrl('verify')          Email: generateUrl('verify', [], ABSOLUTE_URL)
 

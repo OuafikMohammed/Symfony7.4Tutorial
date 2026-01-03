@@ -141,7 +141,7 @@ my_project_directory/
 **Example:**
 ```php
 // Generate URL in controller
-$url = $this->generateUrl('blog_post', ['id' => 123]);
+$url = $this->generateUrl('blog_list', ['id' => 123]);
 
 // Generate absolute URL (for emails)
 $url = $this->generateUrl(
@@ -308,6 +308,35 @@ php bin/console app:generate-urls [--count=10]
 - Absolute URLs for API clients
 - JSON responses
 - REST conventions
+
+### 10. 🎨 UI & Styling with Tailwind CSS
+
+**Templates:** [templates/](templates/)
+
+**Styling:**
+- Tailwind CSS CDN integration
+- Modern, responsive design
+- Professional UI components
+- Inter font family
+
+**Features:**
+- Clean, minimalist layout
+- Mobile-responsive design
+- Gradient backgrounds
+- Shadow and spacing utilities
+- Form styling with Tailwind
+- Navigation with active states
+- Success/error message styling
+- Card-based layouts
+
+**What's Styled:**
+- Base layout with navigation
+- User registration forms
+- CRUD post management
+- Dashboard pages
+- Blog listing pages
+- Error pages
+- Lucky number pages
 
 ## � Complete Documentation Guide
 
