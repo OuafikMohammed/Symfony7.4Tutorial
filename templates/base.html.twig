@@ -113,8 +113,10 @@
         {% endblock %}
     </head>
     <body class="min-h-screen">
-        <div class="max-w-6xl mx-auto px-4 py-8">
-            {% block body %}{% endblock %}
-        </div>
+        {% block content %}
+            <div class="max-w-6xl mx-auto px-4 py-8">
+                {% block body %}{% endblock %}
+            </div>
+        {% endblock %}
     </body>
 </html>

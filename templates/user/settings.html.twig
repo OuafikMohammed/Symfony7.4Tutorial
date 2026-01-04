@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Settings{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-white mb-2">Settings</h1>
+            <p class="text-slate-300">Manage your account preferences and security</p>
+        </div>
+
+        <!-- Settings Tabs -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <a href="{{ accountSettings }}" class="bg-white hover:bg-purple-50 text-gray-900 font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-center">
+                Account
+            </a>
+            <a href="{{ securitySettings }}" class="bg-white hover:bg-blue-50 text-gray-900 font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-center">
+                Security
+            </a>
+            <a href="{{ privacySettings }}" class="bg-white hover:bg-green-50 text-gray-900 font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-center">
+                Privacy
+            </a>
+            <a href="{{ notificationSettings }}" class="bg-white hover:bg-orange-50 text-gray-900 font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-center">
+                Notifications
+            </a>
+        </div>
+
+        <!-- Settings Sections -->
+        <div class="space-y-6">
+            <!-- Account Settings -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <svg class="h-6 w-6 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    Account Information
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                        <span class="text-gray-600">Email Address</span>
+                        <span class="text-gray-900 font-semibold">user@example.com</span>
+                    </div>
+                    <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                        <span class="text-gray-600">Username</span>
+                        <span class="text-gray-900 font-semibold">john_doe</span>
+                    </div>
+                    <div class="flex justify-between items-center py-3">
+                        <span class="text-gray-600">Member Since</span>
+                        <span class="text-gray-900 font-semibold">January 2026</span>
+                    </div>
+                </div>
+                <button class="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200">
+                    Edit Profile
+                </button>
+            </div>
+
+            <!-- Security Settings -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <svg class="h-6 w-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    Security
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center py-4 border-b border-gray-200">
+                        <div>
+                            <p class="text-gray-900 font-semibold">Password</p>
+                            <p class="text-sm text-gray-600">Change your password regularly</p>
+                        </div>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200">
+                            Change
+                        </button>
+                    </div>
+                    <div class="flex justify-between items-center py-4 border-b border-gray-200">
+                        <div>
+                            <p class="text-gray-900 font-semibold">Two-Factor Authentication</p>
+                            <p class="text-sm text-gray-600">Add an extra layer of security</p>
+                        </div>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200">
+                            Enable
+                        </button>
+                    </div>
+                    <div class="flex justify-between items-center py-4">
+                        <div>
+                            <p class="text-gray-900 font-semibold">Active Sessions</p>
+                            <p class="text-sm text-gray-600">Manage your logged-in devices</p>
+                        </div>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200">
+                            View
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy Settings -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <svg class="h-6 w-6 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Privacy
+                </h2>
+                <div class="space-y-4">
+                    <label class="flex items-center py-3 border-b border-gray-200">
+                        <input type="checkbox" class="h-4 w-4 text-green-600 rounded" checked>
+                        <span class="ml-3 text-gray-900">Make my profile visible to others</span>
+                    </label>
+                    <label class="flex items-center py-3 border-b border-gray-200">
+                        <input type="checkbox" class="h-4 w-4 text-green-600 rounded">
+                        <span class="ml-3 text-gray-900">Allow others to message me</span>
+                    </label>
+                    <label class="flex items-center py-3">
+                        <input type="checkbox" class="h-4 w-4 text-green-600 rounded" checked>
+                        <span class="ml-3 text-gray-900">Show my activity status</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Notification Settings -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <svg class="h-6 w-6 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                    Notifications
+                </h2>
+                <div class="space-y-4">
+                    <label class="flex items-center py-3 border-b border-gray-200">
+                        <input type="checkbox" class="h-4 w-4 text-orange-600 rounded" checked>
+                        <span class="ml-3 text-gray-900">Email notifications</span>
+                    </label>
+                    <label class="flex items-center py-3 border-b border-gray-200">
+                        <input type="checkbox" class="h-4 w-4 text-orange-600 rounded" checked>
+                        <span class="ml-3 text-gray-900">Newsletter</span>
+                    </label>
+                    <label class="flex items-center py-3">
+                        <input type="checkbox" class="h-4 w-4 text-orange-600 rounded">
+                        <span class="ml-3 text-gray-900">Promotional emails</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Button -->
+        <div class="mt-8 flex justify-center">
+            <button class="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-105">
+                Save Changes
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

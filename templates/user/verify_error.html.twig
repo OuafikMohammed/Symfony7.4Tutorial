@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Verification Failed{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <!-- Header with Error Icon -->
+        <div class="bg-gradient-to-r from-red-600 to-pink-600 px-6 py-8 text-center">
+            <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white mb-4">
+                <svg class="h-8 w-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-white">Verification Failed</h1>
+            <p class="text-red-100 text-center mt-2">Unable to verify your email</p>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8 space-y-6">
+            <!-- Error Message -->
+            <div class="bg-red-50 border-2 border-red-200 rounded-lg p-4">
+                <h2 class="text-lg font-semibold text-red-900 mb-2">Verification Error</h2>
+                <p class="text-red-700 text-sm leading-relaxed">
+                    The verification link you used is either invalid, expired, or has already been used. Please request a new verification email.
+                </p>
+            </div>
+
+            <!-- Possible Reasons -->
+            <div class="space-y-3">
+                <h3 class="font-semibold text-gray-900">Possible reasons:</h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center">
+                        <svg class="h-4 w-4 text-gray-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6.707 6.707a1 1 0 010 1.414L5.414 9.414a1 1 0 010 1.414l1.293 1.293a1 1 0 01-1.414 1.414l-2-2a1 1 0 010-1.414l2-2a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>The verification link has expired</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-4 w-4 text-gray-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6.707 6.707a1 1 0 010 1.414L5.414 9.414a1 1 0 010 1.414l1.293 1.293a1 1 0 01-1.414 1.414l-2-2a1 1 0 010-1.414l2-2a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>The link was already used</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-4 w-4 text-gray-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6.707 6.707a1 1 0 010 1.414L5.414 9.414a1 1 0 010 1.414l1.293 1.293a1 1 0 01-1.414 1.414l-2-2a1 1 0 010-1.414l2-2a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>The email address might be incorrect</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="space-y-3 pt-4">
+                <a href="{{ resendUrl }}" class="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 transform hover:scale-105">
+                    Resend Verification Email
+                </a>
+                <a href="{{ supportUrl }}" class="block w-full text-center border-2 border-purple-600 hover:bg-purple-50 text-purple-600 font-bold py-3 px-4 rounded-lg transition-colors duration-200">
+                    Contact Support
+                </a>
+            </div>
+
+            <!-- Info Box -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-600 p-4">
+                <p class="text-sm text-yellow-700">
+                    <strong>Tip:</strong> Verification links usually expire after 24 hours for security reasons.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

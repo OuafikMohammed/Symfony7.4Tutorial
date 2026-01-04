@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registration Successful{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-slate-900 via-green-900 to-slate-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <!-- Header with Success Icon -->
+        <div class="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-8 text-center">
+            <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-white mb-4">
+                <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-white">Welcome!</h1>
+            <p class="text-green-100 text-center mt-2">Account created successfully</p>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8 space-y-6">
+            <!-- Success Message -->
+            <div class="bg-green-50 border-2 border-green-200 rounded-lg p-4">
+                <h2 class="text-lg font-semibold text-green-900 mb-2">Account Created</h2>
+                <p class="text-green-700 text-sm leading-relaxed">
+                    Your account has been created successfully. A verification email has been sent to your email address.
+                </p>
+            </div>
+
+            <!-- Steps -->
+            <div class="space-y-4">
+                <h3 class="font-semibold text-gray-900 text-lg">What's next?</h3>
+                <ol class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-purple-600 text-white text-sm font-bold mr-3 flex-shrink-0">1</span>
+                        <div>
+                            <p class="text-gray-900 font-semibold">Check your email</p>
+                            <p class="text-gray-600 text-sm">Look for the verification email we just sent</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-purple-600 text-white text-sm font-bold mr-3 flex-shrink-0">2</span>
+                        <div>
+                            <p class="text-gray-900 font-semibold">Click the verification link</p>
+                            <p class="text-gray-600 text-sm">The link will verify your email address</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-purple-600 text-white text-sm font-bold mr-3 flex-shrink-0">3</span>
+                        <div>
+                            <p class="text-gray-900 font-semibold">Sign in</p>
+                            <p class="text-gray-600 text-sm">You'll be ready to start using our platform</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Info Box -->
+            <div class="bg-blue-50 border-l-4 border-blue-600 p-4">
+                <p class="text-sm text-blue-700">
+                    <strong>Didn't receive the email?</strong> Check your spam folder or we can send it again.
+                </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="space-y-3 pt-4">
+                <a href="{{ loginUrl }}" class="block w-full text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 transform hover:scale-105">
+                    Go to Login
+                </a>
+                <button type="button" onclick="window.history.back()" class="block w-full text-center border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-bold py-3 px-4 rounded-lg transition-colors duration-200">
+                    Go Back
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
